@@ -8,6 +8,24 @@
   height: 30px;
 }
 
+.block {
+  height: 30px;
+  background-color: red;
+  margin: 5px auto;
+}
+
+.block1 {
+  width: 30px;
+}
+
+.block2 {
+  width: 50px;
+}
+
+.block3 {
+  width: 70px;
+}
+
 main {
   display: flex;
   width: 300px;
@@ -25,6 +43,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid orange;
 }
 .stack .background {
   height: 140px;
