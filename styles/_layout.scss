@@ -2,5 +2,22 @@ main {
   display: flex;
   width: 300px;
   height: 250px;
-  background-color: green;
+  margin: 150px auto;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: flex-end;
+  border: 1px solid black;
 }
+
+.stack {
+  width: 90px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .background {
+    height: 140px;
+  }
+}
+
