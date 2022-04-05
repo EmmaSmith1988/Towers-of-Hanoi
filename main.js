@@ -7,6 +7,12 @@ const disc1 = 1
 const disc2 = 2
 const disc3 = 3
 
+//pull through buttons from HTML file
+const buttonStackA = document.querySelector(".stackA__button")
+const buttonStackB = document.querySelector(".stackB__button")
+const buttonStackC = document.querySelector(".stackC__button")
+const buttons = document.querySelectorAll(".button")
+
 //functions
 
 //check if there is something already stored in currentDisc
@@ -45,13 +51,27 @@ const compareDiscWithStack = (stack) => {
   }
 }
 
-//pull through buttons from HTML file
-const buttonStackA = document.querySelector(".stackA__button")
-const buttonStackB = document.querySelector(".stackB__button")
-const buttonStackC = document.querySelector(".stackC__button")
+// buttons.forEach(button => {
+//   button.addEventListener("click", () => {
+//     if (!isCurrentDisc()) {
+//       if (compareStack(button.id)) {
+//         removeDisc(button.id);
+//         console.log(button.id);
+//         console.log(currentDisc);
+//       }
+//     } else {
+//       if (compareDiscWithStack(button.id)) {
+//         addDisc(button.id)
+//         console.log(button.id);
+//         console.log(currentDisc); 
+//       }
+//     }
+//   })
+// })
 
 //event listeners
 buttonStackA.addEventListener("click", () => {
+  console.log(buttonStackA.id);
   if (!isCurrentDisc()) {
     if (compareStack(stackA)) {
       removeDisc(stackA);
@@ -96,6 +116,11 @@ buttonStackC.addEventListener("click", () => {
       console.log(stackC);
       console.log(currentDisc); 
     }
+  }
+  if (stackC == '3,2,1') {
+    console.log("Congratulations, you have won!!!");
+  } else {
+    return;
   }
 })
 
