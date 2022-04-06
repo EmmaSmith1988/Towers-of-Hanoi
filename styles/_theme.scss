@@ -1,3 +1,28 @@
-.background {
-  background-image: url(./tower.png);
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&family=Rubik:wght@500&display=swap');
+
+
+// font-family: 'Rubik', sans-serif;
+// font-family: 'Rubik Puddles', cursive;
+
+.intro {
+  &__title {
+  font-family: 'Rubik Puddles', cursive;
+  color: purple;
+  }
+}
+
+.scores__win {
+  font-size: 18px;
+  text-align: center;
+  margin: auto;
+  color: purple;
+}
+
+* {
+  font-size: 14px;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background-color: rgb(197, 241, 255);
 }

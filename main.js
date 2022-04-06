@@ -6,13 +6,27 @@ let stackC = []
 const disc1 = 1
 const disc2 = 2
 const disc3 = 3
+let moves = 0;
 
 //pull through buttons from HTML file
 const buttonStackA = document.querySelector(".stackA__button")
 const buttonStackB = document.querySelector(".stackB__button")
 const buttonStackC = document.querySelector(".stackC__button")
 const buttons = document.querySelectorAll(".button")
+const blocks = document.querySelectorAll(".block")
+const blockA1 = document.querySelector(".stackA__block1")
+const blockA2 = document.querySelector(".stackA__block2")
+const blockA3 = document.querySelector(".stackA__block3")
+const blockB1 = document.querySelector(".stackB__block1")
+const blockB2 = document.querySelector(".stackB__block2")
+const blockB3 = document.querySelector(".stackB__block3")
+const blockC1 = document.querySelector(".stackC__block1")
+const blockC2 = document.querySelector(".stackC__block2")
+const blockC3 = document.querySelector(".stackC__block3")
+const currentMoves = document.querySelector(".scores__current")
+const win = document.querySelector(".scores__win")
 
+console.log(blocks);
 //functions
 
 //check if there is something already stored in currentDisc
@@ -24,15 +38,35 @@ const isCurrentDisc = () => {
   }
 }
 
+
+
 //remove last item from array and adds it to currentDisc (simulates removing disc from stack)
 const removeDisc = (stack) => {
   currentDisc = stack.pop();
+  console.log(`Stack length ${stack.length}`);
+  // switch (stack.length) {
+  //   case 2:
+  //     blockA1.style.cssText = "position: relative; bottom: 130px;";
+  //     break;
+  //   case 1:
+  //     blockA2.style.cssText = "position: relative; bottom: 180px;";
+  //     break;
+  //   case 0:
+  //     blockA3.style.cssText = "position: relative; bottom: 230px;";
+  //     break;
+  // }
+  
+  moves += 1;
+  currentMoves.innerHTML = `Current moves: ${moves}`
 }
 
 //add disc to end of array and remove it from currentDisc (simulates dropping disc onto stack)
 const addDisc = (stack) => {
   stack.push(currentDisc)
   currentDisc = 0;
+  blockA1.style.cssText = "display: block";
+  moves += 1;
+  currentMoves.innerHTML = `Current moves: ${moves}`
 }
 
 //check if last element of array is smaller than the 2nd to last element (to see if you can pick it up)
@@ -71,7 +105,6 @@ const compareDiscWithStack = (stack) => {
 
 //event listeners
 buttonStackA.addEventListener("click", () => {
-  console.log(buttonStackA.id);
   if (!isCurrentDisc()) {
     if (compareStack(stackA)) {
       removeDisc(stackA);
@@ -118,7 +151,7 @@ buttonStackC.addEventListener("click", () => {
     }
   }
   if (stackC == '3,2,1') {
-    console.log("Congratulations, you have won!!!");
+    win.innerHTML = `Congratulations, you won in ${moves} moves!!!`;
   } else {
     return;
   }

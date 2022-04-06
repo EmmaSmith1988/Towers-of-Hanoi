@@ -1,22 +1,91 @@
 .button {
-  height: 30px;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: plum;
+  border-radius: 5px;
 }
 
 .block {
-  height: 30px;
+  height: 40px;
   background-color: red;
-  margin: 5px auto;
-
+  margin: 10px auto 0;
 }
 
 .block1 {
-  width: 30px;
-}
-
-.block2 {
   width: 50px;
 }
 
-.block3 {
+.block2 {
   width: 70px;
+}
+
+.block3 {
+  width: 85px;
+}
+
+.stackA {
+  .block {
+    display: block;
+  }
+}
+
+.stackB {
+  .block {
+  display: block;
+  }
+}
+
+.stackC {
+  .block {
+  display: none;
+  }
+}
+
+.stackA {
+  &__block1Up {
+    display: none;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+  }
+  &__block2Up {
+    display: none;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+  }
+  &__block3Up {
+    display: none;
+    position: absolute;
+    top: 15px;
+    left: 12px;
+  }
+}
+
+.stackB {
+  &__block1Up {
+    position: absolute;
+    top: 15px;
+    left: 143px;
+  }
+  &__block2Up {
+    position: absolute;
+    top: 15px;
+    left: 133px;
+  }
+  &__block3Up {
+    position: absolute;
+    top: 15px;
+    left: 125px;
+  }
+  #stackB1up {
+    display: none;
+  }
+  #stackB2up {
+    display: none;
+  }
+  #stackB3up {
+    display: none;
+  }
 }

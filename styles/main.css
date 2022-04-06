@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Puddles&family=Rubik:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,50 +6,144 @@
 }
 
 .button {
-  height: 30px;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: plum;
+  border-radius: 5px;
 }
 
 .block {
-  height: 30px;
+  height: 40px;
   background-color: red;
-  margin: 5px auto;
+  margin: 10px auto 0;
 }
 
 .block1 {
-  width: 30px;
-}
-
-.block2 {
   width: 50px;
 }
 
-.block3 {
+.block2 {
   width: 70px;
+}
+
+.block3 {
+  width: 85px;
+}
+
+.stackA .block {
+  display: block;
+}
+
+.stackB .block {
+  display: block;
+}
+
+.stackC .block {
+  display: none;
+}
+
+.stackA__block1Up {
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+.stackA__block2Up {
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+.stackA__block3Up {
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 12px;
+}
+
+.stackB__block1Up {
+  position: absolute;
+  top: 15px;
+  left: 143px;
+}
+.stackB__block2Up {
+  position: absolute;
+  top: 15px;
+  left: 133px;
+}
+.stackB__block3Up {
+  position: absolute;
+  top: 15px;
+  left: 125px;
+}
+.stackB #stackB1up {
+  display: none;
+}
+.stackB #stackB2up {
+  display: none;
+}
+.stackB #stackB3up {
+  display: none;
 }
 
 main {
   display: flex;
-  width: 300px;
-  height: 250px;
-  margin: 150px auto;
-  gap: 10px;
+  width: 24em;
+  height: 25em;
+  margin: 20px auto;
   justify-content: space-between;
   align-items: flex-end;
   border: 1px solid black;
+  position: relative;
+}
+
+.intro {
+  text-align: center;
+}
+.intro__title {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px 20px;
+}
+.intro__rules {
+  width: 90%;
+  margin: auto;
 }
 
 .stack {
-  width: 90px;
-  height: 180px;
+  width: 110px;
+  height: 75%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid orange;
+  border: 1px solid green;
 }
 .stack .background {
   height: 140px;
 }
 
-.background {
-  background-image: url(./tower.png);
+.scores {
+  margin-left: 10px;
+}
+
+.intro__title {
+  font-family: "Rubik Puddles", cursive;
+  color: purple;
+}
+
+.scores__win {
+  font-size: 18px;
+  text-align: center;
+  margin: auto;
+  color: purple;
+}
+
+* {
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: #c5f1ff;
 }
