@@ -26,6 +26,10 @@ const blockC3 = document.querySelector(".stackC__block3")
 const currentMoves = document.querySelector(".scores__current")
 const win = document.querySelector(".scores__win")
 
+//starting positions defined
+blocks[3].style.cssText = "display: block";
+blocks[4].style.cssText = "display: block";
+blocks[5].style.cssText = "display: block";
 console.log(blocks);
 //functions
 
@@ -43,19 +47,6 @@ const isCurrentDisc = () => {
 //remove last item from array and adds it to currentDisc (simulates removing disc from stack)
 const removeDisc = (stack) => {
   currentDisc = stack.pop();
-  console.log(`Stack length ${stack.length}`);
-  // switch (stack.length) {
-  //   case 2:
-  //     blockA1.style.cssText = "position: relative; bottom: 130px;";
-  //     break;
-  //   case 1:
-  //     blockA2.style.cssText = "position: relative; bottom: 180px;";
-  //     break;
-  //   case 0:
-  //     blockA3.style.cssText = "position: relative; bottom: 230px;";
-  //     break;
-  // }
-  
   moves += 1;
   currentMoves.innerHTML = `Current moves: ${moves}`
 }
@@ -64,7 +55,6 @@ const removeDisc = (stack) => {
 const addDisc = (stack) => {
   stack.push(currentDisc)
   currentDisc = 0;
-  blockA1.style.cssText = "display: block";
   moves += 1;
   currentMoves.innerHTML = `Current moves: ${moves}`
 }
@@ -108,12 +98,46 @@ buttonStackA.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackA)) {
       removeDisc(stackA);
+      switch (currentDisc) {
+        case 1:
+          blocks[3].style.cssText = "display: none";
+          blocks[0].style.cssText = "display: block";
+          break;
+        case 2:
+          blocks[4].style.cssText = "display: none";
+          blocks[1].style.cssText = "display: block";
+          break;
+        case 3:
+          blocks[5].style.cssText = "display: none";
+          blocks[2].style.cssText = "display: block";
+      }
       console.log(stackA);
       console.log(currentDisc);
     }
   } else {
     if (compareDiscWithStack(stackA)) {
-      addDisc(stackA)
+      switch (currentDisc) {
+        case 1:
+          blocks[3].style.cssText = "display: block";
+          blocks[6].style.cssText = "display: none";
+          blocks[0].style.cssText = "display: none";
+          blocks[12].style.cssText = "display: none";
+          break;
+        case 2:
+          blocks[4].style.cssText = "display: block";
+          blocks[1].style.cssText = "display: none";
+          blocks[7].style.cssText = "display: none";
+          blocks[13].style.cssText = "display: none";
+
+          break;
+        case 3:
+          blocks[5].style.cssText = "display: block";
+          blocks[2].style.cssText = "display: none";
+          blocks[8].style.cssText = "display: none";
+          blocks[14].style.cssText = "display: none";
+      }
+      addDisc(stackA);
+     
       console.log(stackA);
       console.log(currentDisc); 
     }
@@ -124,11 +148,43 @@ buttonStackB.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackB)) {
       removeDisc(stackB);
+      switch (currentDisc) {
+        case 1:
+          blocks[9].style.cssText = "display: none";
+          blocks[6].style.cssText = "display: block";
+          break;
+        case 2:
+          blocks[10].style.cssText = "display: none";
+          blocks[7].style.cssText = "display: block";
+          break;
+        case 3:
+          blocks[11].style.cssText = "display: none";
+          blocks[8].style.cssText = "display: block";
+      }
       console.log(stackB);
       console.log(currentDisc);
     }
   } else {
     if (compareDiscWithStack(stackB)) {
+      switch (currentDisc) {
+        case 1:
+          blocks[9].style.cssText = "display: block";
+          blocks[6].style.cssText = "display: none";
+          blocks[0].style.cssText = "display: none";
+          blocks[12].style.cssText = "display: none";
+          break;
+        case 2:
+          blocks[10].style.cssText = "display: block";
+          blocks[1].style.cssText = "display: none";
+          blocks[7].style.cssText = "display: none";
+          blocks[13].style.cssText = "display: none";
+          break;
+        case 3:
+          blocks[11].style.cssText = "display: block";
+          blocks[2].style.cssText = "display: none";
+          blocks[8].style.cssText = "display: none";
+          blocks[14].style.cssText = "display: none";
+      }
       addDisc(stackB)
       console.log(stackB);
       console.log(currentDisc); 
@@ -140,11 +196,43 @@ buttonStackC.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackC)) {
       removeDisc(stackC);
+      switch (currentDisc) {
+        case 1:
+          blocks[15].style.cssText = "display: none";
+          blocks[12].style.cssText = "display: block";
+          break;
+        case 2:
+          blocks[16].style.cssText = "display: none";
+          blocks[13].style.cssText = "display: block";
+          break;
+        case 3:
+          blocks[17].style.cssText = "display: none";
+          blocks[14].style.cssText = "display: block";
+      }
       console.log(stackC);
       console.log(currentDisc);
     }
   } else {
     if (compareDiscWithStack(stackC)) {
+      switch (currentDisc) {
+        case 1:
+          blocks[15].style.cssText = "display: block";
+          blocks[6].style.cssText = "display: none";
+          blocks[0].style.cssText = "display: none";
+          blocks[12].style.cssText = "display: none";
+          break;
+        case 2:
+          blocks[16].style.cssText = "display: block";
+          blocks[1].style.cssText = "display: none";
+          blocks[7].style.cssText = "display: none";
+          blocks[13].style.cssText = "display: none";
+          break;
+        case 3:
+          blocks[17].style.cssText = "display: block";
+          blocks[2].style.cssText = "display: none";
+          blocks[8].style.cssText = "display: none";
+          blocks[14].style.cssText = "display: none";
+      }
       addDisc(stackC)
       console.log(stackC);
       console.log(currentDisc); 

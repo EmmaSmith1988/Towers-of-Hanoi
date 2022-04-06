@@ -15,76 +15,77 @@
 
 .block {
   height: 40px;
-  background-color: red;
   margin: 10px auto 0;
+  display: none;
 }
 
 .block1 {
   width: 50px;
+  border-radius: 25px;
 }
 
 .block2 {
   width: 70px;
+  border-radius: 20px;
 }
 
 .block3 {
   width: 85px;
+  border-radius: 18px;
 }
 
-.stackA .block {
-  display: block;
-}
-
-.stackB .block {
-  display: block;
-}
-
-.stackC .block {
-  display: none;
-}
-
-.stackA__block1Up {
-  display: none;
+#stackA1up {
   position: absolute;
   top: 15px;
   left: 30px;
 }
-.stackA__block2Up {
-  display: none;
+
+#stackA2up {
   position: absolute;
   top: 15px;
   left: 20px;
 }
-.stackA__block3Up {
-  display: none;
+
+#stackA3up {
   position: absolute;
   top: 15px;
   left: 12px;
 }
 
-.stackB__block1Up {
+#stackB1up {
   position: absolute;
   top: 15px;
   left: 143px;
 }
-.stackB__block2Up {
+
+#stackB2up {
   position: absolute;
   top: 15px;
   left: 133px;
 }
-.stackB__block3Up {
+
+#stackB3up {
   position: absolute;
   top: 15px;
   left: 125px;
 }
-.stackB #stackB1up {
-  display: none;
+
+#stackC1up {
+  position: absolute;
+  top: 15px;
+  right: 30px;
 }
-.stackB #stackB2up {
-  display: none;
+
+#stackC2up {
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
-.stackB #stackB3up {
-  display: none;
+
+#stackC3up {
+  position: absolute;
+  top: 15px;
+  right: 12px;
 }
 
 main {
@@ -94,7 +95,6 @@ main {
   margin: 20px auto;
   justify-content: space-between;
   align-items: flex-end;
-  border: 1px solid black;
   position: relative;
 }
 
@@ -117,7 +117,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid green;
+  border: 1px solid purple;
 }
 .stack .background {
   height: 140px;
