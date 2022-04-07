@@ -155,7 +155,7 @@ buttonStackC.addEventListener("click", () => {
       addDisc(stackC)
     }
   }
-  if (stackC == '3,2,1') {
+  if (stackC.length == 3) {
     win.innerHTML = `Congratulations, you won in ${moves} moves!!!`;
   } else {
     return;
