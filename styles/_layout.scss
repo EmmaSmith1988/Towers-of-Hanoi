@@ -28,6 +28,9 @@ main {
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid purple;
+  background: url(./hanoi.jpg);
+  background-repeat: no-repeat;
+  background-size: 110px 210px;
 
   .background {
     height: 140px;
