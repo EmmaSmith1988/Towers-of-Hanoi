@@ -17,40 +17,14 @@ const blocks = document.querySelectorAll(".block")
 const currentMoves = document.querySelector(".scores__current")
 const win = document.querySelector(".scores__win")
 const numberOfDiscs = document.querySelector("#discs")
-
-numberOfDiscs.addEventListener("change", () => {
-  switch (numberOfDiscs.value) {
-    case '3':
-      blocks[3].style.cssText = "display: none";
-      blocks[4].style.cssText = "display: none";
-      blocks[5].style.cssText = "display: none";
-      break;
-    case '4': 
-      blocks[3].style.cssText = "display: block";
-      blocks[4].style.cssText = "display: none";
-      blocks[5].style.cssText = "display: none";
-      break;
-    case '5': 
-      blocks[3].style.cssText = "display: block";
-      blocks[4].style.cssText = "display: block";
-      blocks[5].style.cssText = "display: none";
-      break;
-    case '6': 
-      blocks[3].style.cssText = "display: block";
-      blocks[4].style.cssText = "display: block";
-      blocks[5].style.cssText = "display: block";
-      break;
-  }
-    
-
-})
-
+const fewestMoves = document.querySelector(".scores__fewest")
+const reset = document.querySelector(".reset")
 
 //starting positions defined
 blocks[0].style.cssText = "display: block";
 blocks[1].style.cssText = "display: block";
 blocks[2].style.cssText = "display: block";
-// console.log(blocks);
+
 //functions
 
 //check if there is something already stored in currentDisc
@@ -70,15 +44,15 @@ const removeDisc = (stack) => {
   switch (stack) {
     case stackA:
       blocks[currentDisc-1].style.cssText = "display: none";
-      blocks[currentDisc+2].style.cssText = "display: block";
+      blocks[currentDisc+5].style.cssText = "display: block";
       break;
     case stackB:
-      blocks[currentDisc+5].style.cssText = "display: none";
-      blocks[currentDisc+2].style.cssText = "display: block";
+      blocks[currentDisc+11].style.cssText = "display: none";
+      blocks[currentDisc+5].style.cssText = "display: block";
       break;
     case stackC:
-      blocks[currentDisc+8].style.cssText = "display: none";
-      blocks[currentDisc+2].style.cssText = "display: block";
+      blocks[currentDisc+17].style.cssText = "display: none";
+      blocks[currentDisc+5].style.cssText = "display: block";
   }
   moves += 1;
   currentMoves.innerHTML = `Current moves: ${moves}`
@@ -107,15 +81,15 @@ const compareDiscWithStack = (stack) => {
     switch (stack) {
       case stackA:
         blocks[currentDisc-1].style.cssText = "display: block";
-        blocks[currentDisc+2].style.cssText = "display: none";
+        blocks[currentDisc+5].style.cssText = "display: none";
         break;
       case stackB:
-        blocks[currentDisc+5].style.cssText = "display: block";
-        blocks[currentDisc+2].style.cssText = "display: none";
+        blocks[currentDisc+11].style.cssText = "display: block";
+        blocks[currentDisc+5].style.cssText = "display: none";
         break;
       case stackC:
-        blocks[currentDisc+8].style.cssText = "display: block";
-        blocks[currentDisc+2].style.cssText = "display: none";
+        blocks[currentDisc+17].style.cssText = "display: block";
+        blocks[currentDisc+5].style.cssText = "display: none";
         break;
     }
     return true;
@@ -140,7 +114,69 @@ const compareDiscWithStack = (stack) => {
 //   })
 // })
 
+const setStartingDiscs = () => {
+  switch (numberOfDiscs.value) {
+    case '3':
+      blocks[0].style.cssText = "display: block";
+      blocks[1].style.cssText = "display: block";
+      blocks[2].style.cssText = "display: block";
+      blocks[3].style.cssText = "display: none";
+      blocks[4].style.cssText = "display: none";
+      blocks[5].style.cssText = "display: none";
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      stackA = [3, 2, 1]
+      break;
+    case '4': 
+      blocks[0].style.cssText = "display: block";
+      blocks[1].style.cssText = "display: block";
+      blocks[2].style.cssText = "display: block";
+      blocks[3].style.cssText = "display: block";
+      blocks[4].style.cssText = "display: none";
+      blocks[5].style.cssText = "display: none";
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      stackA = [4, 3, 2, 1]
+      break;
+    case '5': 
+      blocks[0].style.cssText = "display: block";
+      blocks[1].style.cssText = "display: block";
+      blocks[2].style.cssText = "display: block";
+      blocks[3].style.cssText = "display: block";
+      blocks[4].style.cssText = "display: block";
+      blocks[5].style.cssText = "display: none";
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      stackA = [5, 4, 3, 2, 1]
+      break;
+    case '6':
+      blocks[0].style.cssText = "display: block";
+      blocks[1].style.cssText = "display: block";
+      blocks[2].style.cssText = "display: block"; 
+      blocks[3].style.cssText = "display: block";
+      blocks[4].style.cssText = "display: block";
+      blocks[5].style.cssText = "display: block";
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      stackA = [6, 5, 4, 3, 2, 1]
+      break;
+  }
+}
+
 //event listeners
+const resetGame = () => {
+  blocks.forEach(block => {
+    block.style.cssText = "display: none";
+  })
+  setStartingDiscs();
+  stackB = [];
+  stackC = [];
+  currentDisc = 0;
+  win.innerHTML = "";
+  moves = 0;
+  currentMoves.innerHTML = `Current moves: ${moves}`
+}
+
+reset.addEventListener('click', resetGame)
+
+numberOfDiscs.addEventListener("change", resetGame)
+
 buttonStackA.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackA)) {
@@ -175,7 +211,7 @@ buttonStackC.addEventListener("click", () => {
       addDisc(stackC)
     }
   }
-  if (stackC.length == 3) {
+  if (stackC.length == numberOfDiscs.value) {
     win.innerHTML = `Congratulations, you won in ${moves} moves!!!`;
   } else {
     return;
