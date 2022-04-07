@@ -135,6 +135,11 @@ main {
   color: purple;
 }
 
+.scores {
+  width: 350px;
+  margin: auto;
+}
+
 .scores__win {
   font-size: 18px;
   text-align: center;

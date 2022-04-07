@@ -98,48 +98,16 @@ buttonStackA.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackA)) {
       removeDisc(stackA);
-      switch (currentDisc) {
-        case 1:
-          blocks[3].style.cssText = "display: none";
-          blocks[0].style.cssText = "display: block";
-          break;
-        case 2:
-          blocks[4].style.cssText = "display: none";
-          blocks[1].style.cssText = "display: block";
-          break;
-        case 3:
-          blocks[5].style.cssText = "display: none";
-          blocks[2].style.cssText = "display: block";
-      }
-      console.log(stackA);
-      console.log(currentDisc);
+      blocks[currentDisc+2].style.cssText = "display: none";
+      blocks[currentDisc+5].style.cssText = "display: block";
     }
   } else {
     if (compareDiscWithStack(stackA)) {
-      switch (currentDisc) {
-        case 1:
-          blocks[3].style.cssText = "display: block";
-          blocks[6].style.cssText = "display: none";
-          blocks[0].style.cssText = "display: none";
-          blocks[12].style.cssText = "display: none";
-          break;
-        case 2:
-          blocks[4].style.cssText = "display: block";
-          blocks[1].style.cssText = "display: none";
-          blocks[7].style.cssText = "display: none";
-          blocks[13].style.cssText = "display: none";
-
-          break;
-        case 3:
-          blocks[5].style.cssText = "display: block";
-          blocks[2].style.cssText = "display: none";
-          blocks[8].style.cssText = "display: none";
-          blocks[14].style.cssText = "display: none";
-      }
+      blocks[currentDisc+2].style.cssText = "display: block";
+      blocks[currentDisc-1].style.cssText = "display: none";
+      blocks[currentDisc+5].style.cssText = "display: none";
+      blocks[currentDisc+11].style.cssText = "display: none";
       addDisc(stackA);
-     
-      console.log(stackA);
-      console.log(currentDisc); 
     }
   }
 })
@@ -148,46 +116,16 @@ buttonStackB.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackB)) {
       removeDisc(stackB);
-      switch (currentDisc) {
-        case 1:
-          blocks[9].style.cssText = "display: none";
-          blocks[6].style.cssText = "display: block";
-          break;
-        case 2:
-          blocks[10].style.cssText = "display: none";
-          blocks[7].style.cssText = "display: block";
-          break;
-        case 3:
-          blocks[11].style.cssText = "display: none";
-          blocks[8].style.cssText = "display: block";
-      }
-      console.log(stackB);
-      console.log(currentDisc);
+      blocks[currentDisc+8].style.cssText = "display: none";
+      blocks[currentDisc+5].style.cssText = "display: block";
     }
   } else {
     if (compareDiscWithStack(stackB)) {
-      switch (currentDisc) {
-        case 1:
-          blocks[9].style.cssText = "display: block";
-          blocks[6].style.cssText = "display: none";
-          blocks[0].style.cssText = "display: none";
-          blocks[12].style.cssText = "display: none";
-          break;
-        case 2:
-          blocks[10].style.cssText = "display: block";
-          blocks[1].style.cssText = "display: none";
-          blocks[7].style.cssText = "display: none";
-          blocks[13].style.cssText = "display: none";
-          break;
-        case 3:
-          blocks[11].style.cssText = "display: block";
-          blocks[2].style.cssText = "display: none";
-          blocks[8].style.cssText = "display: none";
-          blocks[14].style.cssText = "display: none";
-      }
+      blocks[currentDisc+8].style.cssText = "display: block";
+      blocks[currentDisc+5].style.cssText = "display: none";
+      blocks[currentDisc-1].style.cssText = "display: none";
+      blocks[currentDisc+11].style.cssText = "display: none";
       addDisc(stackB)
-      console.log(stackB);
-      console.log(currentDisc); 
     }
   }
 })
@@ -196,46 +134,16 @@ buttonStackC.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackC)) {
       removeDisc(stackC);
-      switch (currentDisc) {
-        case 1:
-          blocks[15].style.cssText = "display: none";
-          blocks[12].style.cssText = "display: block";
-          break;
-        case 2:
-          blocks[16].style.cssText = "display: none";
-          blocks[13].style.cssText = "display: block";
-          break;
-        case 3:
-          blocks[17].style.cssText = "display: none";
-          blocks[14].style.cssText = "display: block";
-      }
-      console.log(stackC);
-      console.log(currentDisc);
+      blocks[currentDisc+14].style.cssText = "display: none";
+      blocks[currentDisc+11].style.cssText = "display: block";
     }
   } else {
     if (compareDiscWithStack(stackC)) {
-      switch (currentDisc) {
-        case 1:
-          blocks[15].style.cssText = "display: block";
-          blocks[6].style.cssText = "display: none";
-          blocks[0].style.cssText = "display: none";
-          blocks[12].style.cssText = "display: none";
-          break;
-        case 2:
-          blocks[16].style.cssText = "display: block";
-          blocks[1].style.cssText = "display: none";
-          blocks[7].style.cssText = "display: none";
-          blocks[13].style.cssText = "display: none";
-          break;
-        case 3:
-          blocks[17].style.cssText = "display: block";
-          blocks[2].style.cssText = "display: none";
-          blocks[8].style.cssText = "display: none";
-          blocks[14].style.cssText = "display: none";
-      }
+      blocks[currentDisc+14].style.cssText = "display: block";
+      blocks[currentDisc+11].style.cssText = "display: none";
+      blocks[currentDisc+5].style.cssText = "display: none";
+      blocks[currentDisc-1].style.cssText = "display: none";
       addDisc(stackC)
-      console.log(stackC);
-      console.log(currentDisc); 
     }
   }
   if (stackC == '3,2,1') {
