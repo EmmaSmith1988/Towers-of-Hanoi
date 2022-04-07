@@ -34,24 +34,6 @@
   border-radius: 18px;
 }
 
-#stackA1up {
-  position: absolute;
-  top: 15px;
-  left: 30px;
-}
-
-#stackA2up {
-  position: absolute;
-  top: 15px;
-  left: 20px;
-}
-
-#stackA3up {
-  position: absolute;
-  top: 15px;
-  left: 12px;
-}
-
 #stackB1up {
   position: absolute;
   top: 15px;
@@ -68,24 +50,6 @@
   position: absolute;
   top: 15px;
   left: 125px;
-}
-
-#stackC1up {
-  position: absolute;
-  top: 15px;
-  right: 30px;
-}
-
-#stackC2up {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
-
-#stackC3up {
-  position: absolute;
-  top: 15px;
-  right: 12px;
 }
 
 main {
@@ -117,7 +81,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid purple;
   background: url(./hanoi.jpg);
   background-repeat: no-repeat;
   background-size: 110px 210px;

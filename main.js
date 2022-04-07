@@ -27,9 +27,9 @@ const currentMoves = document.querySelector(".scores__current")
 const win = document.querySelector(".scores__win")
 
 //starting positions defined
-blocks[3].style.cssText = "display: block";
-blocks[4].style.cssText = "display: block";
-blocks[5].style.cssText = "display: block";
+blocks[0].style.cssText = "display: block";
+blocks[1].style.cssText = "display: block";
+blocks[2].style.cssText = "display: block";
 console.log(blocks);
 //functions
 
@@ -42,11 +42,24 @@ const isCurrentDisc = () => {
   }
 }
 
-
-
 //remove last item from array and adds it to currentDisc (simulates removing disc from stack)
 const removeDisc = (stack) => {
   currentDisc = stack.pop();
+  console.log(currentDisc);
+  console.log(stack);
+  switch (stack) {
+    case stackA:
+      blocks[currentDisc-1].style.cssText = "display: none";
+      blocks[currentDisc+2].style.cssText = "display: block";
+      break;
+    case stackB:
+      blocks[currentDisc+5].style.cssText = "display: none";
+      blocks[currentDisc+2].style.cssText = "display: block";
+      break;
+    case stackC:
+      blocks[currentDisc+8].style.cssText = "display: none";
+      blocks[currentDisc+2].style.cssText = "display: block";
+  }
   moves += 1;
   currentMoves.innerHTML = `Current moves: ${moves}`
 }
@@ -71,6 +84,20 @@ const compareStack = (stack) => {
 //check if currentDisc is smaller than the last item in the array (to see if you can drop it)
 const compareDiscWithStack = (stack) => {
   if (currentDisc < stack[stack.length-1] || stack.length == 0) {
+    switch (stack) {
+      case stackA:
+        blocks[currentDisc-1].style.cssText = "display: block";
+        blocks[currentDisc+2].style.cssText = "display: none";
+        break;
+      case stackB:
+        blocks[currentDisc+5].style.cssText = "display: block";
+        blocks[currentDisc+2].style.cssText = "display: none";
+        break;
+      case stackC:
+        blocks[currentDisc+8].style.cssText = "display: block";
+        blocks[currentDisc+2].style.cssText = "display: none";
+        break;
+    }
     return true;
   }
 }
@@ -98,13 +125,9 @@ buttonStackA.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackA)) {
       removeDisc(stackA);
-      blocks[currentDisc+2].style.cssText = "display: none";
-      blocks[currentDisc+5].style.cssText = "display: block";
     }
   } else {
     if (compareDiscWithStack(stackA)) {
-      blocks[currentDisc+2].style.cssText = "display: block";
-      blocks[currentDisc+5].style.cssText = "display: none";
       addDisc(stackA);
     }
   }
@@ -114,13 +137,9 @@ buttonStackB.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackB)) {
       removeDisc(stackB);
-      blocks[currentDisc+8].style.cssText = "display: none";
-      blocks[currentDisc+5].style.cssText = "display: block";
     }
   } else {
     if (compareDiscWithStack(stackB)) {
-      blocks[currentDisc+8].style.cssText = "display: block";
-      blocks[currentDisc+5].style.cssText = "display: none";
       addDisc(stackB)
     }
   }
@@ -130,13 +149,9 @@ buttonStackC.addEventListener("click", () => {
   if (!isCurrentDisc()) {
     if (compareStack(stackC)) {
       removeDisc(stackC);
-      blocks[currentDisc+14].style.cssText = "display: none";
-      blocks[currentDisc+5].style.cssText = "display: block";
     }
   } else {
     if (compareDiscWithStack(stackC)) {
-      blocks[currentDisc+14].style.cssText = "display: block";
-      blocks[currentDisc+5].style.cssText = "display: none";
       addDisc(stackC)
     }
   }
