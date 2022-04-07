@@ -14,23 +14,43 @@ const buttonStackB = document.querySelector(".stackB__button")
 const buttonStackC = document.querySelector(".stackC__button")
 const buttons = document.querySelectorAll(".button")
 const blocks = document.querySelectorAll(".block")
-const blockA1 = document.querySelector(".stackA__block1")
-const blockA2 = document.querySelector(".stackA__block2")
-const blockA3 = document.querySelector(".stackA__block3")
-const blockB1 = document.querySelector(".stackB__block1")
-const blockB2 = document.querySelector(".stackB__block2")
-const blockB3 = document.querySelector(".stackB__block3")
-const blockC1 = document.querySelector(".stackC__block1")
-const blockC2 = document.querySelector(".stackC__block2")
-const blockC3 = document.querySelector(".stackC__block3")
 const currentMoves = document.querySelector(".scores__current")
 const win = document.querySelector(".scores__win")
+const numberOfDiscs = document.querySelector("#discs")
+
+numberOfDiscs.addEventListener("change", () => {
+  switch (numberOfDiscs.value) {
+    case '3':
+      blocks[3].style.cssText = "display: none";
+      blocks[4].style.cssText = "display: none";
+      blocks[5].style.cssText = "display: none";
+      break;
+    case '4': 
+      blocks[3].style.cssText = "display: block";
+      blocks[4].style.cssText = "display: none";
+      blocks[5].style.cssText = "display: none";
+      break;
+    case '5': 
+      blocks[3].style.cssText = "display: block";
+      blocks[4].style.cssText = "display: block";
+      blocks[5].style.cssText = "display: none";
+      break;
+    case '6': 
+      blocks[3].style.cssText = "display: block";
+      blocks[4].style.cssText = "display: block";
+      blocks[5].style.cssText = "display: block";
+      break;
+  }
+    
+
+})
+
 
 //starting positions defined
 blocks[0].style.cssText = "display: block";
 blocks[1].style.cssText = "display: block";
 blocks[2].style.cssText = "display: block";
-console.log(blocks);
+// console.log(blocks);
 //functions
 
 //check if there is something already stored in currentDisc

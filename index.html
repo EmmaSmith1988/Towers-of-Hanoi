@@ -11,7 +11,16 @@
     <section class="intro">
     <h1 class="intro__title">Towers of Hanoi</h1>
     <p class="intro__rules">Can you get the stack of blocks to right hand column in as few moves as possible?</p><br>
-    <p class="intro__rules">Larger blocks cannot stack on top of smaller ones</p>
+    <p class="intro__rules">Larger blocks cannot stack on top of smaller ones</p><br>
+
+    <label for="discs">How many discs?</label>
+    <select name="discs" id="discs">
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <button class="reset">Start again</button>
   </section>
     <main>
      
@@ -20,6 +29,9 @@
         <img id="stackA1down" class="block1 block" src="./disc1.png" alt="">
         <img id="stackA2down" class="block2 block" src="./disc2.png" alt="">
         <img id="stackA3down" class="block3 block" src="./disc3.png" alt="">
+        <img id="stackA4down" class="block4 block" src="./disc4.png" alt="">
+        <img id="stackA5down" class="block5 block" src="./disc5.png" alt="">
+        <img id="stackA6down" class="block6 block" src="./disc6.png" alt="">
         <button class="stackA__button button" id="stackA">Grab or drop</button>
       </section>
       <section class="stackB stack">
@@ -27,9 +39,15 @@
         <img id="stackB1up" class="block1 block" src="./disc1.png" alt="">
         <img id="stackB2up" class="block2 block" src="./disc2.png" alt="">
         <img id="stackB3up" class="block3 block" src="./disc3.png" alt="">
+        <img id="stackB4up" class="block4 block" src="./disc4.png" alt="">
+        <img id="stackB5up" class="block5 block" src="./disc5.png" alt="">
+        <img id="stackB6up" class="block6 block" src="./disc6.png" alt="">
         <img id="stackB1down" class="block1 block" src="./disc1.png" alt="">
         <img id="stackB2down" class="block2 block" src="./disc2.png" alt="">
         <img id="stackB3down" class="block3 block" src="./disc3.png" alt="">
+        <img id="stackB4down" class="block4 block" src="./disc4.png" alt="">
+        <img id="stackB5down" class="block5 block" src="./disc5.png" alt="">
+        <img id="stackB6down" class="block6 block" src="./disc6.png" alt="">
         <button class="stackB__button button">Grab or drop</button>
       </section>
       <section class="stackC stack">
@@ -37,12 +55,16 @@
         <img id="stackC1down" class="block1 block" src="./disc1.png" alt="">
         <img id="stackC2down" class="block2 block" src="./disc2.png" alt="">
         <img id="stackC3down" class="block3 block" src="./disc3.png" alt="">
+        <img id="stackC4down" class="block4 block" src="./disc4.png" alt="">
+        <img id="stackC5down" class="block5 block" src="./disc5.png" alt="">
+        <img id="stackC6down" class="block6 block" src="./disc6.png" alt="">
         <button class="stackC__button button">Grab or drop</button>
       </section>
     </main>
     <section class="scores">
       <p class="scores__current">Current moves: </p>
       <p class="scores__fewest">Fewest possible moves: 14</p><br>
+     
       <p class="scores__win"></p>
     </section>
 
