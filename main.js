@@ -54,8 +54,6 @@ const removeDisc = (stack) => {
       blocks[currentDisc+17].style.cssText = "display: none";
       blocks[currentDisc+5].style.cssText = "display: block";
   }
-  moves += 1;
-  currentMoves.innerHTML = `Current moves: ${moves}`
 }
 
 //add disc to end of array and remove it from currentDisc (simulates dropping disc onto stack)
@@ -123,7 +121,7 @@ const setStartingDiscs = () => {
       blocks[3].style.cssText = "display: none";
       blocks[4].style.cssText = "display: none";
       blocks[5].style.cssText = "display: none";
-      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)}`
       stackA = [3, 2, 1]
       break;
     case '4': 
@@ -133,7 +131,7 @@ const setStartingDiscs = () => {
       blocks[3].style.cssText = "display: block";
       blocks[4].style.cssText = "display: none";
       blocks[5].style.cssText = "display: none";
-      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)}`
       stackA = [4, 3, 2, 1]
       break;
     case '5': 
@@ -143,7 +141,7 @@ const setStartingDiscs = () => {
       blocks[3].style.cssText = "display: block";
       blocks[4].style.cssText = "display: block";
       blocks[5].style.cssText = "display: none";
-      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)}`
       stackA = [5, 4, 3, 2, 1]
       break;
     case '6':
@@ -153,7 +151,7 @@ const setStartingDiscs = () => {
       blocks[3].style.cssText = "display: block";
       blocks[4].style.cssText = "display: block";
       blocks[5].style.cssText = "display: block";
-      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)*2}`
+      fewestMoves.innerHTML = `Fewest possible moves: ${((2**(numberOfDiscs.value))-1)}`
       stackA = [6, 5, 4, 3, 2, 1]
       break;
   }
