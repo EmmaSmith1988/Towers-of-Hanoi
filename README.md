@@ -17,7 +17,7 @@ On a large screen, the game looks quite small in the middle.
 
 ## It looks like this
 
-
+![towers](https://user-images.githubusercontent.com/72084805/162757109-a302d71b-cab8-4eab-ad1a-025212c35c11.png)
 
 ## You can find my game here
 
